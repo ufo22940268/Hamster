@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		424F9938228BDE8200952440 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9937228BDE8200952440 /* AppDelegate.swift */; };
-		424F993A228BDE8200952440 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9939228BDE8200952440 /* ViewController.swift */; };
+		424F993A228BDE8200952440 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9939228BDE8200952440 /* MainViewController.swift */; };
 		424F993D228BDE8200952440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424F993B228BDE8200952440 /* Main.storyboard */; };
 		424F993F228BDE8400952440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424F993E228BDE8400952440 /* Assets.xcassets */; };
 		424F9942228BDE8400952440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424F9940228BDE8400952440 /* LaunchScreen.storyboard */; };
 		424F994D228BDE8400952440 /* HamsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F994C228BDE8400952440 /* HamsterTests.swift */; };
 		424F9958228BDE8400952440 /* HamsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9957228BDE8400952440 /* HamsterUITests.swift */; };
+		424F9971228BFDFA00952440 /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9970228BFDFA00952440 /* CredentialProviderViewController.swift */; };
+		424F9974228BFDFA00952440 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424F9972228BFDFA00952440 /* MainInterface.storyboard */; };
+		424F9979228BFDFA00952440 /* Auth.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 424F996D228BFDFA00952440 /* Auth.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		424F997F228CD17300952440 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424F997E228CD17300952440 /* AuthenticationServices.framework */; };
+		424F9981228D34D800952440 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9980228D34D800952440 /* Extensions.swift */; };
+		424F9983228D3CA600952440 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9982228D3CA600952440 /* RecordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +37,33 @@
 			remoteGlobalIDString = 424F9933228BDE8200952440;
 			remoteInfo = Hamster;
 		};
+		424F9977228BFDFA00952440 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 424F992C228BDE8200952440 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 424F996C228BFDFA00952440;
+			remoteInfo = Auth;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		424F997D228BFDFA00952440 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				424F9979228BFDFA00952440 /* Auth.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		424F9934228BDE8200952440 /* Hamster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hamster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424F9937228BDE8200952440 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		424F9939228BDE8200952440 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		424F9939228BDE8200952440 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		424F993C228BDE8200952440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		424F993E228BDE8400952440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		424F9941228BDE8400952440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +74,15 @@
 		424F9953228BDE8400952440 /* HamsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HamsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424F9957228BDE8400952440 /* HamsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterUITests.swift; sourceTree = "<group>"; };
 		424F9959228BDE8400952440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		424F9968228BF10F00952440 /* Hamster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hamster.entitlements; sourceTree = "<group>"; };
+		424F996D228BFDFA00952440 /* Auth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Auth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		424F9970228BFDFA00952440 /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
+		424F9973228BFDFA00952440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		424F9975228BFDFA00952440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		424F9976228BFDFA00952440 /* Auth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Auth.entitlements; sourceTree = "<group>"; };
+		424F997E228CD17300952440 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		424F9980228D34D800952440 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		424F9982228D3CA600952440 /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424F997F228CD17300952440 /* AuthenticationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +108,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		424F996A228BFDFA00952440 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,7 +124,9 @@
 				424F9936228BDE8200952440 /* Hamster */,
 				424F994B228BDE8400952440 /* HamsterTests */,
 				424F9956228BDE8400952440 /* HamsterUITests */,
+				424F996F228BFDFA00952440 /* Auth */,
 				424F9935228BDE8200952440 /* Products */,
+				424F9965228BF10F00952440 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +136,7 @@
 				424F9934228BDE8200952440 /* Hamster.app */,
 				424F9948228BDE8400952440 /* HamsterTests.xctest */,
 				424F9953228BDE8400952440 /* HamsterUITests.xctest */,
+				424F996D228BFDFA00952440 /* Auth.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,12 +144,15 @@
 		424F9936228BDE8200952440 /* Hamster */ = {
 			isa = PBXGroup;
 			children = (
+				424F9968228BF10F00952440 /* Hamster.entitlements */,
 				424F9937228BDE8200952440 /* AppDelegate.swift */,
-				424F9939228BDE8200952440 /* ViewController.swift */,
+				424F9939228BDE8200952440 /* MainViewController.swift */,
+				424F9982228D3CA600952440 /* RecordCell.swift */,
 				424F993B228BDE8200952440 /* Main.storyboard */,
 				424F993E228BDE8400952440 /* Assets.xcassets */,
 				424F9940228BDE8400952440 /* LaunchScreen.storyboard */,
 				424F9943228BDE8400952440 /* Info.plist */,
+				424F9980228D34D800952440 /* Extensions.swift */,
 			);
 			path = Hamster;
 			sourceTree = "<group>";
@@ -125,6 +175,25 @@
 			path = HamsterUITests;
 			sourceTree = "<group>";
 		};
+		424F9965228BF10F00952440 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				424F997E228CD17300952440 /* AuthenticationServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		424F996F228BFDFA00952440 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				424F9970228BFDFA00952440 /* CredentialProviderViewController.swift */,
+				424F9972228BFDFA00952440 /* MainInterface.storyboard */,
+				424F9975228BFDFA00952440 /* Info.plist */,
+				424F9976228BFDFA00952440 /* Auth.entitlements */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +204,12 @@
 				424F9930228BDE8200952440 /* Sources */,
 				424F9931228BDE8200952440 /* Frameworks */,
 				424F9932228BDE8200952440 /* Resources */,
+				424F997D228BFDFA00952440 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				424F9978228BFDFA00952440 /* PBXTargetDependency */,
 			);
 			name = Hamster;
 			productName = Hamster;
@@ -181,6 +252,23 @@
 			productReference = 424F9953228BDE8400952440 /* HamsterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		424F996C228BFDFA00952440 /* Auth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424F997A228BFDFA00952440 /* Build configuration list for PBXNativeTarget "Auth" */;
+			buildPhases = (
+				424F9969228BFDFA00952440 /* Sources */,
+				424F996A228BFDFA00952440 /* Frameworks */,
+				424F996B228BFDFA00952440 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Auth;
+			productName = Auth;
+			productReference = 424F996D228BFDFA00952440 /* Auth.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,6 +281,11 @@
 				TargetAttributes = {
 					424F9933228BDE8200952440 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.AutoFillCredentialProvider = {
+								enabled = 1;
+							};
+						};
 					};
 					424F9947228BDE8400952440 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -201,6 +294,9 @@
 					424F9952228BDE8400952440 = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = 424F9933228BDE8200952440;
+					};
+					424F996C228BFDFA00952440 = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -220,6 +316,7 @@
 				424F9933228BDE8200952440 /* Hamster */,
 				424F9947228BDE8400952440 /* HamsterTests */,
 				424F9952228BDE8400952440 /* HamsterUITests */,
+				424F996C228BFDFA00952440 /* Auth */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +346,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		424F996B228BFDFA00952440 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424F9974228BFDFA00952440 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -256,7 +361,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424F993A228BDE8200952440 /* ViewController.swift in Sources */,
+				424F993A228BDE8200952440 /* MainViewController.swift in Sources */,
+				424F9981228D34D800952440 /* Extensions.swift in Sources */,
+				424F9983228D3CA600952440 /* RecordCell.swift in Sources */,
 				424F9938228BDE8200952440 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +384,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		424F9969228BFDFA00952440 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424F9971228BFDFA00952440 /* CredentialProviderViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +404,11 @@
 			isa = PBXTargetDependency;
 			target = 424F9933228BDE8200952440 /* Hamster */;
 			targetProxy = 424F9954228BDE8400952440 /* PBXContainerItemProxy */;
+		};
+		424F9978228BFDFA00952440 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 424F996C228BFDFA00952440 /* Auth */;
+			targetProxy = 424F9977228BFDFA00952440 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -307,6 +427,14 @@
 				424F9941228BDE8400952440 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		424F9972228BFDFA00952440 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				424F9973228BFDFA00952440 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -431,7 +559,9 @@
 		424F995D228BDE8400952440 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hamster/Hamster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S833P2K5YV;
 				INFOPLIST_FILE = Hamster/Info.plist;
@@ -449,7 +579,9 @@
 		424F995E228BDE8400952440 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hamster/Hamster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S833P2K5YV;
 				INFOPLIST_FILE = Hamster/Info.plist;
@@ -546,6 +678,46 @@
 			};
 			name = Release;
 		};
+		424F997B228BFDFA00952440 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Auth/Auth.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S833P2K5YV;
+				INFOPLIST_FILE = Auth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bettycc.Hamster.Auth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		424F997C228BFDFA00952440 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Auth/Auth.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S833P2K5YV;
+				INFOPLIST_FILE = Auth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bettycc.Hamster.Auth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -581,6 +753,15 @@
 			buildConfigurations = (
 				424F9963228BDE8400952440 /* Debug */,
 				424F9964228BDE8400952440 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		424F997A228BFDFA00952440 /* Build configuration list for PBXNativeTarget "Auth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424F997B228BFDFA00952440 /* Debug */,
+				424F997C228BFDFA00952440 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

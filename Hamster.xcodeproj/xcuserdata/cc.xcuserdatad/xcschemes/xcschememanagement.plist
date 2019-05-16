@@ -4,10 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Auth.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Hamster.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>424F9933228BDE8200952440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>424F9947228BDE8400952440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>424F9952228BDE8400952440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>424F996C228BFDFA00952440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
