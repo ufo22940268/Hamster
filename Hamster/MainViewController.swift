@@ -13,9 +13,29 @@ class MainViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var records: [Record]!
     
+    lazy var addButtonItem: UIBarButtonItem = {
+        let item = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        return item
+    }()
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        print("editing: \(editing)")
+        if editing {
+            navigationItem.leftBarButtonItem = nil
+        } else {
+            navigationItem.leftBarButtonItem = addButtonItem
+        }
+        tableView.setEditing(editing, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Hamster"
+        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem = addButtonItem
 
         records = [Record(host: "v2ex.com", url: "v2ex.com/detail")]
         tableView.register(RecordCell.self, forCellReuseIdentifier: "cell")
@@ -35,7 +55,5 @@ class MainViewController: UIViewController, UITableViewDataSource {
         cell.imageView?.image = record.capitalImage(on: imageSize)
         return cell
     }
-    
-    
 }
 
