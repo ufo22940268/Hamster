@@ -15,7 +15,7 @@ struct Record {
     func capitalImage(on size: CGSize) -> UIImage {
         return UIGraphicsImageRenderer.init(size: size).image { context in
             let path = UIBezierPath(rect: CGRect(origin: .zero, size: size))
-            UIColor.lightGray.setFill()
+            UIColor.gray.setFill()
             path.fill()
 
             let label = UILabel(frame: CGRect(origin: .zero, size: size))
