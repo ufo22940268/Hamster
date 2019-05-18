@@ -95,7 +95,7 @@
                                                             <rect key="frame" x="120" y="13.5" width="274" height="17"/>
                                                             <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="url"/>
                                                             <connections>
                                                                 <action selector="onEditFieldChanged:" destination="dkv-Ef-PjX" eventType="editingChanged" id="Cft-3f-fZy"/>
                                                             </connections>

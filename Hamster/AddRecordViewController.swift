@@ -16,6 +16,11 @@ class AddRecordViewController: UITableViewController {
         return item
     }()
     
+    lazy var cancelBarButtonItem: UIBarButtonItem = {
+        var item = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancel))
+        return item
+    }()
+    
     var isFillAll: Bool! {
         didSet {
             doneBarButtonItem.isEnabled = isFillAll
@@ -37,10 +42,15 @@ class AddRecordViewController: UITableViewController {
         isFillAll = false
         
         self.navigationItem.rightBarButtonItem = doneBarButtonItem
+        self.navigationItem.leftBarButtonItem = cancelBarButtonItem
     }
     
     @objc func onDone() {
         
+    }
+    
+    @objc func onCancel(){
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onEditFieldChanged(_ sender: Any) {
