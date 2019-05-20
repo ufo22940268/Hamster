@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Va5-wT-Yt9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="rge-ua-Dfa"/>
@@ -48,11 +48,15 @@
         <!--Navigation Controller-->
         <scene sceneID="fpN-zS-mdE">
             <objects>
-                <navigationController id="uv5-4n-14K" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="uv5-4n-14K" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cpD-Dv-bmk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ACb-6X-AIZ">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="g8t-uE-TNq"/>
                     </connections>
@@ -206,7 +210,7 @@
                             <outlet property="delegate" destination="dkv-Ef-PjX" id="nn3-Nx-PIw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JS0-aL-2tt"/>
+                    <navigationItem key="navigationItem" id="8Gv-ph-oeq"/>
                     <connections>
                         <outlet property="hostField" destination="ufq-VH-lO4" id="eun-fw-Q2v"/>
                         <outlet property="passwordField" destination="3cF-Kh-OAg" id="c4f-We-3zc"/>
@@ -215,7 +219,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsG-JI-vtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="137.94642857142856"/>
+            <point key="canvasLocation" x="3826.0869565217395" y="137.94642857142856"/>
+        </scene>
+        <!--Add Record Navigation Controller-->
+        <scene sceneID="Hg0-mp-sFk">
+            <objects>
+                <navigationController storyboardIdentifier="add" automaticallyAdjustsScrollViewInsets="NO" id="3c7-Ys-vp0" userLabel="Add Record Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n4E-F1-kow">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dkv-Ef-PjX" kind="relationship" relationship="rootViewController" id="fBX-uM-GCS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hml-ez-osB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2962" y="138"/>
         </scene>
     </scenes>
 </document>

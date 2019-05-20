@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     }
     
     lazy var addButtonItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        let item = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
         return item
     }()
     
@@ -50,10 +50,24 @@ class MainViewController: UIViewController {
         loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    
     func loadData() {
         let realm = try! Realm()
         records = realm.objects(Record.self)
         tableView.reloadData()
+    }
+    
+    @objc func onAdd() {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "add") else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .coverVertical
+        navigationController?.view.semanticContentAttribute = .forceLeftToRight
+//        navigationController?.pushViewController(vc, animated: true)
+        present(vc, animated: true, completion: nil)
+//        navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -81,7 +95,7 @@ extension MainViewController: UITableViewDataSource {
     
     var sectionTitles: [String] {
         guard let records = records else { return [] }
-        return records.map { $0.capitalCharacter }
+        return Array(Set(records.map { $0.capitalCharacter })).sorted()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

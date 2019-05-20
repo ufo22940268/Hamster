@@ -38,6 +38,8 @@ class AddRecordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.isToolbarHidden = false
         self.clearsSelectionOnViewWillAppear = true
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -72,7 +74,7 @@ class AddRecordViewController: UITableViewController {
     }
     
     @objc func onCancel(){
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onEditFieldChanged(_ sender: Any) {
