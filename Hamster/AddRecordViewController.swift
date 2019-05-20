@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import AuthenticationServices
+
 
 class AddRecordViewController: UITableViewController {
     
-    @IBOutlet var allFields: [UITextField]!
     lazy var doneBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDone))
         return item
@@ -21,18 +22,24 @@ class AddRecordViewController: UITableViewController {
         return item
     }()
     
+    @IBOutlet weak var hostField: URLAddField!
+    @IBOutlet weak var usernameField: NormalAddField!
+    @IBOutlet weak var passwordField: NormalAddField!
+    var validators: [Validator] {
+        return [hostField, usernameField, passwordField]
+    }
+    
     var isFillAll: Bool! {
         didSet {
             doneBarButtonItem.isEnabled = isFillAll
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        
+        self.clearsSelectionOnViewWillAppear = true
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         let footerView = UIView()
@@ -45,8 +52,15 @@ class AddRecordViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = cancelBarButtonItem
     }
     
+    
     @objc func onDone() {
-        
+        let serviceIdentifier = ASCredentialServiceIdentifier(identifier: hostField.text!, type: .domain)
+        let passwordIdentifier = ASPasswordCredentialIdentity(serviceIdentifier: serviceIdentifier, user: usernameField.text!, recordIdentifier: passwordField.text)
+        ASCredentialIdentityStore.shared.saveCredentialIdentities([passwordIdentifier]) {
+            (_, _) in
+            print("dismiss")
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func onCancel(){
@@ -54,66 +68,8 @@ class AddRecordViewController: UITableViewController {
     }
     
     @IBAction func onEditFieldChanged(_ sender: Any) {
-        isFillAll = allFields.allSatisfy({ (field) -> Bool in
-            return !(field.text ?? "").isEmpty
-        })
+        isFillAll = validators.allSatisfy { $0.validate() }
     }
-    
-    // MARK: - Table view data source
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+

@@ -21,6 +21,7 @@
 		424F9981228D34D800952440 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9980228D34D800952440 /* Extensions.swift */; };
 		424F9983228D3CA600952440 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9982228D3CA600952440 /* RecordCell.swift */; };
 		42B4EB3B228D95AC00DF3B5D /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4EB3A228D95AC00DF3B5D /* AddRecordViewController.swift */; };
+		42B99BA2229238560052D99D /* AddRecordFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B99BA1229238560052D99D /* AddRecordFields.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		424F9980228D34D800952440 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		424F9982228D3CA600952440 /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		42B4EB3A228D95AC00DF3B5D /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		42B99BA1229238560052D99D /* AddRecordFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFields.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				424F9943228BDE8400952440 /* Info.plist */,
 				424F9980228D34D800952440 /* Extensions.swift */,
 				42B4EB3A228D95AC00DF3B5D /* AddRecordViewController.swift */,
+				42B99BA1229238560052D99D /* AddRecordFields.swift */,
 			);
 			path = Hamster;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				424F993A228BDE8200952440 /* MainViewController.swift in Sources */,
+				42B99BA2229238560052D99D /* AddRecordFields.swift in Sources */,
 				424F9981228D34D800952440 /* Extensions.swift in Sources */,
 				424F9983228D3CA600952440 /* RecordCell.swift in Sources */,
 				42B4EB3B228D95AC00DF3B5D /* AddRecordViewController.swift in Sources */,

@@ -91,7 +91,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="example.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufq-VH-lO4">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="example.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufq-VH-lO4" customClass="URLAddField" customModule="Hamster" customModuleProvider="target">
                                                             <rect key="frame" x="120" y="13.5" width="274" height="17"/>
                                                             <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -133,7 +133,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="用户" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-12-aYs">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="用户" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-12-aYs" customClass="NormalAddField" customModule="Hamster" customModuleProvider="target">
                                                             <rect key="frame" x="120" y="13.5" width="274" height="17"/>
                                                             <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -175,7 +175,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="密码" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cF-Kh-OAg">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="密码" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cF-Kh-OAg" customClass="NormalAddField" customModule="Hamster" customModuleProvider="target">
                                                             <rect key="frame" x="120" y="13.5" width="274" height="17"/>
                                                             <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -208,9 +208,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="JS0-aL-2tt"/>
                     <connections>
-                        <outletCollection property="allFields" destination="ufq-VH-lO4" collectionClass="NSMutableArray" id="eXC-7L-sLZ"/>
-                        <outletCollection property="allFields" destination="fSP-12-aYs" collectionClass="NSMutableArray" id="fxp-LI-BGM"/>
-                        <outletCollection property="allFields" destination="3cF-Kh-OAg" collectionClass="NSMutableArray" id="Iu7-hp-4iy"/>
+                        <outlet property="hostField" destination="ufq-VH-lO4" id="eun-fw-Q2v"/>
+                        <outlet property="passwordField" destination="3cF-Kh-OAg" id="c4f-We-3zc"/>
+                        <outlet property="usernameField" destination="fSP-12-aYs" id="E7k-g9-HD9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsG-JI-vtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
