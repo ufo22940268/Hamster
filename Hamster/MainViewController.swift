@@ -91,5 +91,9 @@ extension MainViewController: UITableViewDataSource {
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sectionTitles
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
 }
 
