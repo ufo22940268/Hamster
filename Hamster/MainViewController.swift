@@ -10,10 +10,15 @@ import UIKit
 import AuthenticationServices
 import RealmSwift
 
-class MainViewController: UIViewController, UITableViewDataSource {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var records: Results<Record>!
+    var recordMap: Dictionary<String, [Record]>!
+    var records: Results<Record>! {
+        didSet {
+            recordMap = Dictionary(grouping: records, by: {$0.capitalCharacter})
+        }
+    }
     
     lazy var addButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
@@ -50,19 +55,41 @@ class MainViewController: UIViewController, UITableViewDataSource {
         records = realm.objects(Record.self)
         tableView.reloadData()
     }
-    
+}
+
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records != nil ? records.count : 0
+        guard let recordMap = recordMap else { return 0 }
+        let title = sectionTitles[section]
+        return recordMap[title]!.count
+    }
+    
+    func getRecord(indexPath: IndexPath) -> Record {
+        let title = sectionTitles[indexPath.section]
+        return recordMap[title]![indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecordCell
-        let record = records[indexPath.row]
+        let record = getRecord(indexPath: indexPath)
         cell.textLabel?.text = record.host
         cell.detailTextLabel?.text = record.url
         let imageSize = CGRect(origin: .zero, size: CGSize(width: cell.bounds.height, height: cell.bounds.height)).insetBy(dx: 8, dy: 8).size
         cell.imageView?.image = record.capitalImage(on: imageSize)
         return cell
+    }
+    
+    var sectionTitles: [String] {
+        guard let records = records else { return [] }
+        return records.map { $0.capitalCharacter }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return sectionTitles
     }
 }
 
