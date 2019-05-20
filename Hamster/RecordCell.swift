@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
-struct Record {
-    var host: String
-    var url: String
+class Record: Object {
+    @objc dynamic var host: String = ""
+    @objc dynamic var url: String = ""
     
     func capitalImage(on size: CGSize) -> UIImage {
         return UIGraphicsImageRenderer.init(size: size).image { context in

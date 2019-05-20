@@ -19,7 +19,7 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
         print("-----------")
         let store = ASCredentialIdentityStore.shared
         
-        let password = ASPasswordCredentialIdentity(serviceIdentifier: ASCredentialServiceIdentifier(identifier: "www.v2ex.com", type: .domain), user: "i", recordIdentifier: nil)
+        let password = ASPasswordCredentialIdentity(serviceIdentifier: ASCredentialServiceIdentifier(identifier: "www.v2ex.com", type: .domain), user: "fik", recordIdentifier: nil)
         store.saveCredentialIdentities([password], completion: nil)
     }
 

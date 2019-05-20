@@ -22,6 +22,7 @@
 		424F9983228D3CA600952440 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F9982228D3CA600952440 /* RecordCell.swift */; };
 		42B4EB3B228D95AC00DF3B5D /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4EB3A228D95AC00DF3B5D /* AddRecordViewController.swift */; };
 		42B99BA2229238560052D99D /* AddRecordFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B99BA1229238560052D99D /* AddRecordFields.swift */; };
+		42B99BA422926F8B0052D99D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B99BA322926F8B0052D99D /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		424F9982228D3CA600952440 /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		42B4EB3A228D95AC00DF3B5D /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		42B99BA1229238560052D99D /* AddRecordFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFields.swift; sourceTree = "<group>"; };
+		42B99BA322926F8B0052D99D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B99BA422926F8B0052D99D /* RealmSwift.framework in Frameworks */,
 				424F997F228CD17300952440 /* AuthenticationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +187,7 @@
 		424F9965228BF10F00952440 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42B99BA322926F8B0052D99D /* RealmSwift.framework */,
 				424F997E228CD17300952440 /* AuthenticationServices.framework */,
 			);
 			name = Frameworks;
@@ -211,6 +215,7 @@
 				424F9931228BDE8200952440 /* Frameworks */,
 				424F9932228BDE8200952440 /* Resources */,
 				424F997D228BFDFA00952440 /* Embed App Extensions */,
+				42B99BA522926FB60052D99D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -361,6 +366,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42B99BA522926FB60052D99D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		424F9930228BDE8200952440 /* Sources */ = {
@@ -572,6 +599,10 @@
 				CODE_SIGN_ENTITLEMENTS = Hamster/Hamster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S833P2K5YV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Hamster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -592,6 +623,10 @@
 				CODE_SIGN_ENTITLEMENTS = Hamster/Hamster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S833P2K5YV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Hamster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

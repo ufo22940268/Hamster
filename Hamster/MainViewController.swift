@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AuthenticationServices
+import RealmSwift
 
 class MainViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var records: [Record]!
+    var records: Results<Record>!
     
     lazy var addButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
@@ -37,13 +39,20 @@ class MainViewController: UIViewController, UITableViewDataSource {
         navigationItem.rightBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem = addButtonItem
 
-        records = [Record(host: "v2ex.com", url: "v2ex.com/detail")]
         tableView.register(RecordCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 1)))
+        
+        loadData()
+    }
+    
+    func loadData() {
+        let realm = try! Realm()
+        records = realm.objects(Record.self)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+        return records != nil ? records.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

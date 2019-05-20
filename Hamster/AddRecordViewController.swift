@@ -8,7 +8,7 @@
 
 import UIKit
 import AuthenticationServices
-
+import RealmSwift
 
 class AddRecordViewController: UITableViewController {
     
@@ -54,11 +54,19 @@ class AddRecordViewController: UITableViewController {
     
     
     @objc func onDone() {
+        guard let host = hostField.text, let password = passwordField.text else { return }
         let serviceIdentifier = ASCredentialServiceIdentifier(identifier: hostField.text!, type: .domain)
         let passwordIdentifier = ASPasswordCredentialIdentity(serviceIdentifier: serviceIdentifier, user: usernameField.text!, recordIdentifier: passwordField.text)
         ASCredentialIdentityStore.shared.saveCredentialIdentities([passwordIdentifier]) {
             (_, _) in
             print("dismiss")
+            let record = Record()
+            record.host = host
+            record.url = host
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(record)
+            }
             self.dismiss(animated: true, completion: nil)
         }
     }
