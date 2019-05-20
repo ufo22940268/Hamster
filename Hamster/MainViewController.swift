@@ -13,12 +13,18 @@ import RealmSwift
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var recordMap: Dictionary<String, [Record]>!
+    var recordMap: Dictionary<String, [Record]>! {
+        return Dictionary(grouping: records, by: {$0.capitalCharacter})
+    }
+    
     var records: Results<Record>! {
         didSet {
-            recordMap = Dictionary(grouping: records, by: {$0.capitalCharacter})
         }
     }
+    
+    lazy var realm: Realm = {
+       return try! Realm()
+    }()
     
     lazy var addButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
@@ -27,7 +33,6 @@ class MainViewController: UIViewController {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        print("editing: \(editing)")
         if editing {
             navigationItem.leftBarButtonItem = nil
         } else {
@@ -46,17 +51,15 @@ class MainViewController: UIViewController {
 
         tableView.register(RecordCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 1)))
-        
+        records = realm.objects(Record.self)
         loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
-    
+
     func loadData() {
-        let realm = try! Realm()
-        records = realm.objects(Record.self)
         tableView.reloadData()
     }
     
@@ -65,9 +68,7 @@ class MainViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .coverVertical
         navigationController?.view.semanticContentAttribute = .forceLeftToRight
-//        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true, completion: nil)
-//        navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -108,6 +109,15 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if  editingStyle == .delete {
+            try! realm.write {
+                realm.delete(getRecord(indexPath: indexPath))
+                tableView.reloadData()
+            }
+        }
     }
 }
 
