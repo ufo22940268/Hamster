@@ -14,6 +14,16 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         return self
     }
+    
+    func sameSizeAsParent() {
+        guard let superview = superview else { fatalError() }
+        self.useAutolayout()
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            topAnchor.constraint(equalTo: superview.topAnchor),
+            widthAnchor.constraint(equalTo: superview.widthAnchor),
+            heightAnchor.constraint(equalTo: superview.heightAnchor)])
+    }
 }
 
 extension String {

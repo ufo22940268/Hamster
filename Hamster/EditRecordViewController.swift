@@ -30,14 +30,34 @@ import UIKit
     
     override var isEditing: Bool {
         didSet {
-            editField.isUserInteractionEnabled = isEditing
+            if isEditing {
+                label.isHidden = true
+                editField.isHidden = false
+            } else {
+                label.isHidden = false
+                editField.isHidden = true
+            }
         }
     }
+    
+    lazy var rightContainer: UIView = {
+        let view = UIView().useAutolayout()
+        return view
+    }()
     
     lazy var editField: UITextField = {
         let view = UITextField().useAutolayout()
         view.textAlignment = .right
         view.placeholder = editText
+        view.text = editText
+        return view
+    }()
+    
+    lazy var label: UILabel = {
+        let view = UILabel().useAutolayout()
+        view.textColor = UIColor.lightGray
+        view.textAlignment = .right
+        view.text = editText
         return view
     }()
 
@@ -49,10 +69,38 @@ import UIKit
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)])
         
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(editField)
+        stackView.addArrangedSubview(rightContainer)
+        
+        rightContainer.addSubview(editField)
+        editField.sameSizeAsParent()
+        rightContainer.addSubview(label)
+        label.sameSizeAsParent()
         
         isEditing = false
     }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    func showShareDialog() {
+        becomeFirstResponder()
+        let menu = UIMenuController.shared
+        if !menu.isMenuVisible {
+            menu.setTargetRect(CGRect(origin: CGPoint(x: center.x, y: 0), size: .zero), in: self)
+            menu.setMenuVisible(true, animated: true)
+        }
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return ["copy:", "_share:"].contains(action.description)
+    }
+    
+    override func copy(_ sender: Any?) {
+        let board = UIPasteboard.general
+        board.string = editField.text
+    }
+    
 }
 
 class EditRecordViewController: UITableViewController {
@@ -65,11 +113,8 @@ class EditRecordViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let popover = EditRecordPopoverViewController()
-        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
-//        popover.popoverPresentationController?.sourceRect = CGRect(origin: CGPoint(x: 100, y: 100), size: CGSize(width: 1, height: 1))
-        popover.popoverPresentationController?.permittedArrowDirections = .down
-        present(popover, animated: true, completion: nil)
+        let cell = tableView.cellForRow(at: indexPath) as! EditRecordCell
+        cell.showShareDialog()
     }
 }
 
