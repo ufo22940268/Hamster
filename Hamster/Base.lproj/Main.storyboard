@@ -260,6 +260,7 @@
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="kkkkkkkkkk"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="editText" value="v2ex.com"/>
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </cells>
