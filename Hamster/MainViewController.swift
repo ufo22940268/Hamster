@@ -121,3 +121,11 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "edit") as! EditRecordViewController
+        vc.record = getRecord(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+

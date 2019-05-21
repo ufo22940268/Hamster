@@ -13,6 +13,10 @@ class Record: Object {
     @objc dynamic var host: String = ""
     @objc dynamic var url: String = ""
     
+    var simpleHost: String {
+        return host.replacingOccurrences(of: #"(.+\.)?(.+\..+)"#, with: "$2", options: .regularExpression)
+    }
+    
     func capitalImage(on size: CGSize) -> UIImage {
         return UIGraphicsImageRenderer.init(size: size).image { context in
             let path = UIBezierPath(rect: CGRect(origin: .zero, size: size))
