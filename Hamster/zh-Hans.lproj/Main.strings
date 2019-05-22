@@ -1,0 +1,30 @@
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "3cF-Kh-OAg"; */
+"3cF-Kh-OAg.placeholder" = "密码";
+
+/* Class = "UITableViewSection"; headerTitle = "  "; ObjectID = "7ct-Qr-8ha"; */
+"7ct-Qr-8ha.headerTitle" = "  ";
+
+/* Class = "UILabel"; text = "用户名"; ObjectID = "SX3-ra-dVi"; */
+"SX3-ra-dVi.text" = "用户名";
+
+/* Class = "UILabel"; text = "网站"; ObjectID = "ViF-AY-pT6"; */
+"ViF-AY-pT6.text" = "网站";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "avH-se-32x"; */
+"avH-se-32x.title" = "Title";
+
+/* Class = "UILabel"; text = "密码"; ObjectID = "eql-qJ-odb"; */
+"eql-qJ-odb.text" = "密码";
+
+/* Class = "UITextField"; placeholder = "用户"; ObjectID = "fSP-12-aYs"; */
+"fSP-12-aYs.placeholder" = "用户";
+
+/* Class = "UILabel"; text = "Titleffff"; ObjectID = "t21-Vy-1MP"; */
+"t21-Vy-1MP.text" = "Titleffff";
+
+/* Class = "UITextField"; placeholder = "example.com"; ObjectID = "ufq-VH-lO4"; */
+"ufq-VH-lO4.placeholder" = "example.com";
+
+/* Class = "UITableViewSection"; headerTitle = " 网站"; ObjectID = "wKX-iX-oCd"; */
+"wKX-iX-oCd.headerTitle" = " 网站";
