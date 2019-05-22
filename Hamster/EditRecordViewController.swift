@@ -44,13 +44,29 @@ class EditRecordViewController: UITableViewController {
                 recordCell.showEditField = editing
             }
         }
+        
+        if !editing {
+            saveChanges()
+        }
+    }
+    
+    func saveChanges() {
+        guard let username = usernameField.editField.text, let password = passwordField.editField.text else {
+            return
+        }
+        
+        try! realm.write {
+            self.record.username = username
+            self.record.password = password
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
         if indexPath.section == 0 {
             let cell = tableView.cellForRow(at: indexPath) as! EditRecordCell
             cell.showShareDialog()
+        } else {
+            super.tableView(tableView, didSelectRowAt: indexPath)
         }
     }
 
