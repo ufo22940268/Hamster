@@ -87,7 +87,12 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecordCell
         let record = getRecord(indexPath: indexPath)
-        cell.textLabel?.text = record.host
+        
+        let first = record.host + " — "
+        let last = record.username
+        let attributeText = NSMutableAttributedString(string: first)
+        attributeText.append(NSAttributedString(string: last, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]))
+        cell.textLabel?.attributedText = attributeText
         cell.detailTextLabel?.text = record.url
         let imageSize = CGRect(origin: .zero, size: CGSize(width: cell.bounds.height, height: cell.bounds.height)).insetBy(dx: 8, dy: 8).size
         cell.imageView?.image = record.capitalImage(on: imageSize)
