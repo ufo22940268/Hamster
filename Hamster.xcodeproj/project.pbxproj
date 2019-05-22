@@ -25,6 +25,7 @@
 		42B99BA422926F8B0052D99D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B99BA322926F8B0052D99D /* RealmSwift.framework */; };
 		42B99BA722938E310052D99D /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B99BA622938E310052D99D /* EditRecordViewController.swift */; };
 		42B99BAB2294C49A0052D99D /* EditRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B99BAA2294C49A0052D99D /* EditRecordCell.swift */; };
+		42B99BAD2294CD420052D99D /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B99BAC2294CD420052D99D /* Debug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		42B99BA322926F8B0052D99D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		42B99BA622938E310052D99D /* EditRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewController.swift; sourceTree = "<group>"; };
 		42B99BAA2294C49A0052D99D /* EditRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordCell.swift; sourceTree = "<group>"; };
+		42B99BAC2294CD420052D99D /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				42B99BA1229238560052D99D /* AddRecordFields.swift */,
 				42B99BA622938E310052D99D /* EditRecordViewController.swift */,
 				42B99BAA2294C49A0052D99D /* EditRecordCell.swift */,
+				42B99BAC2294CD420052D99D /* Debug.swift */,
 			);
 			path = Hamster;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				424F993A228BDE8200952440 /* MainViewController.swift in Sources */,
 				42B99BA2229238560052D99D /* AddRecordFields.swift in Sources */,
 				424F9981228D34D800952440 /* Extensions.swift in Sources */,
+				42B99BAD2294CD420052D99D /* Debug.swift in Sources */,
 				424F9983228D3CA600952440 /* RecordCell.swift in Sources */,
 				42B4EB3B228D95AC00DF3B5D /* AddRecordViewController.swift in Sources */,
 				42B99BA722938E310052D99D /* EditRecordViewController.swift in Sources */,

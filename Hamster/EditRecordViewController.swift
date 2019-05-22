@@ -8,12 +8,16 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class EditRecordViewController: UITableViewController {
     
     var record: Record!
     
     override func viewDidLoad() {
+        if isInitial() {
+            record = (try! Realm()).objects(Record.self).first!
+        }
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = record.simpleHost
         navigationItem.rightBarButtonItem = editButtonItem

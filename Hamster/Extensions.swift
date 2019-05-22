@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIView {
+    @discardableResult
     func useAutolayout() -> Self {
         self.translatesAutoresizingMaskIntoConstraints = false
         return self
@@ -32,11 +33,25 @@ extension String {
         let urlTest = NSPredicate(format:"SELF MATCHES %@", urlRegEx)
         let result = urlTest.evaluate(with: self)
         return result
-//        let url = URL(string: self)
-//        if let url = url, dlet _ = url.host {
-//            return true
-//        } else {
-//            return false
-//        }
     }
 }
+
+extension UIViewController {
+    func isInitial() -> Bool {
+        guard UIDevice.isSimulator else { fatalError() }
+        let initialVC =  storyboard!.instantiateInitialViewController()!
+        if let navigationVC = initialVC as? UINavigationController {
+            return type(of: navigationVC.topViewController!) == type(of: self)
+        } else {
+            return type(of: initialVC) == type(of: self)
+        }
+    }
+}
+
+extension UIDevice {
+    static var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
+}
+
+
