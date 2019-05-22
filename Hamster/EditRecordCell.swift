@@ -12,7 +12,12 @@ import UIKit
 @IBDesignable class EditRecordCell: UITableViewCell {
     
     @IBInspectable var title: String!
-    @IBInspectable var editText: String!
+    var editText: String! {
+        didSet {
+            editField.text = editText
+            label.text = editText
+        }
+    }
     
     lazy var stackView: UIStackView = {
         let view = UIStackView().useAutolayout()
@@ -33,9 +38,12 @@ import UIKit
             if showEditField {
                 label.isHidden = true
                 editField.isHidden = false
+                editField.isUserInteractionEnabled = true
             } else {
                 label.isHidden = false
                 editField.isHidden = true
+                editField.isUserInteractionEnabled = false
+                label.text = editField.text
             }
         }
     }

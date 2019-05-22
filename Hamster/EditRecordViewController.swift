@@ -14,6 +14,9 @@ class EditRecordViewController: UITableViewController {
     
     var record: Record!
     
+    @IBOutlet weak var usernameField: EditRecordCell!
+    @IBOutlet weak var passwordField: EditRecordCell!
+    
     override func viewDidLoad() {
         if isInitial() {
             record = (try! Realm()).objects(Record.self).first!
@@ -24,6 +27,9 @@ class EditRecordViewController: UITableViewController {
         navigationController?.isToolbarHidden = true
         tableView.tableFooterView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 1, height: 1)))
         view.backgroundColor = .groupTableViewBackground
+        
+        usernameField.editText = record.username
+        passwordField.editText = record.password
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {

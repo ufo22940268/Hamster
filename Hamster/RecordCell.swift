@@ -12,7 +12,9 @@ import RealmSwift
 class Record: Object {
     @objc dynamic var host: String = ""
     @objc dynamic var url: String = ""
-    
+    @objc dynamic var username: String = ""
+    @objc dynamic var password: String = ""
+
     var simpleHost: String {
         return host.replacingOccurrences(of: #"(.+\.)?(.+\..+)"#, with: "$2", options: .regularExpression)
     }

@@ -56,7 +56,7 @@ class AddRecordViewController: UITableViewController {
     
     
     @objc func onDone() {
-        guard let host = hostField.text, let password = passwordField.text else { return }
+        guard let host = hostField.text, let password = passwordField.text, let username = usernameField.text else { return }
         let serviceIdentifier = ASCredentialServiceIdentifier(identifier: hostField.text!, type: .domain)
         let passwordIdentifier = ASPasswordCredentialIdentity(serviceIdentifier: serviceIdentifier, user: usernameField.text!, recordIdentifier: passwordField.text)
         ASCredentialIdentityStore.shared.saveCredentialIdentities([passwordIdentifier]) {
@@ -65,6 +65,8 @@ class AddRecordViewController: UITableViewController {
             let record = Record()
             record.host = host
             record.url = host
+            record.username = username
+            record.password = password
             let realm = try! Realm()
             try! realm.write {
                 realm.add(record)
