@@ -13,9 +13,13 @@ import RealmSwift
 class EditRecordViewController: UITableViewController {
     
     var record: Record!
+    lazy var realm: Realm = {
+       return try! Realm()
+    }()
     
     @IBOutlet weak var usernameField: EditRecordCell!
     @IBOutlet weak var passwordField: EditRecordCell!
+    @IBOutlet weak var hostLabel: UILabel!
     
     override func viewDidLoad() {
         if isInitial() {
@@ -30,6 +34,7 @@ class EditRecordViewController: UITableViewController {
         
         usernameField.editText = record.username
         passwordField.editText = record.password
+        hostLabel.text = record.host
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -40,13 +45,30 @@ class EditRecordViewController: UITableViewController {
             }
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! EditRecordCell
-        cell.showShareDialog()
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        if indexPath.section == 0 {
+            let cell = tableView.cellForRow(at: indexPath) as! EditRecordCell
+            cell.showShareDialog()
+        }
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false
+        if indexPath.section == 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("edit")
+        if indexPath.section == 1 && editingStyle == .delete {
+            try! realm.write {
+                realm.delete(record)
+            }
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
