@@ -38,7 +38,7 @@ extension String {
 
 extension UIViewController {
     func isInitial() -> Bool {
-        guard UIDevice.isSimulator else { fatalError() }
+//        guard UIDevice.isSimulator else { fatalError() }
         let initialVC =  storyboard!.instantiateInitialViewController()!
         if let navigationVC = initialVC as? UINavigationController {
             return type(of: navigationVC.topViewController!) == type(of: self)

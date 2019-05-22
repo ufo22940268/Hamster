@@ -63,7 +63,6 @@ class EditRecordViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("edit")
         if indexPath.section == 1 && editingStyle == .delete {
             try! realm.write {
                 realm.delete(record)
