@@ -28,9 +28,9 @@ import UIKit
         return view
     }()
     
-    override var isEditing: Bool {
+    var showEditField: Bool! {
         didSet {
-            if isEditing {
+            if showEditField {
                 label.isHidden = true
                 editField.isHidden = false
             } else {
@@ -50,6 +50,7 @@ import UIKit
         view.textAlignment = .right
         view.placeholder = editText
         view.text = editText
+        view.textColor = UIView().tintColor
         return view
     }()
     
@@ -60,6 +61,10 @@ import UIKit
         view.text = editText
         return view
     }()
+    
+    override var editingStyle: UITableViewCell.EditingStyle {
+        return .insert
+    }
     
     override func awakeFromNib() {
         contentView.addSubview(stackView)
@@ -76,7 +81,7 @@ import UIKit
         rightContainer.addSubview(label)
         label.sameSizeAsParent()
         
-        isEditing = false
+        showEditField = false
     }
     
     override var canBecomeFirstResponder: Bool {

@@ -22,9 +22,21 @@ class EditRecordViewController: UITableViewController {
         view.backgroundColor = .groupTableViewBackground
     }
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.visibleCells.forEach {
+            if let recordCell = $0 as? EditRecordCell {
+                recordCell.showEditField = editing
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! EditRecordCell
         cell.showShareDialog()
     }
-}
 
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+}
